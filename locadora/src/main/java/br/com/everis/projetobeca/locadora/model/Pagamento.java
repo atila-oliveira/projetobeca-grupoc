@@ -6,7 +6,7 @@ import java.lang.*;
 import javax.persistence.*;
 
 
-@Entity
+//@Entity
 @Getter
 @Setter
 @Table(name = "PAGAMENTOS")
