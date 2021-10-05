@@ -20,16 +20,4 @@ public class Funcionario  {
     @NotBlank
     private String senha;
 
-    /*
-    private boolean cadastrarCliente;
-    private boolean alterarCliente;
-    private boolean excluirCliente;
-    private String cadastrarPedido;
-    private boolean atualizarPedido;
-    private boolean pagarPedido;
-    private boolean darBaixaPedido;
-    private boolean cadastrarProduto;
-    private boolean alterarProduto;
-    private boolean excluirProduto;
-*/
 }
