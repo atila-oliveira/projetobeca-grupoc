@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/locadora/locadora.iml" filepath="$PROJECT_DIR$/locadora/locadora.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/projetobeca-grupoc.iml" filepath="$PROJECT_DIR$/.idea/projetobeca-grupoc.iml" />
+    </modules>
+  </component>
+</project>
