@@ -19,12 +19,23 @@ public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-//  private StatusPedido status;
-//  private Funcionario funcionario;
-//  private List<Produto> listaProdutos;
+
+
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
+
+    private StatusPedido status;
+
+   @OneToOne
+   @JoinColumn(name = "funcionario_id")
+   private Funcionario funcionario;
+
+
+    //private List<Produto> listaProdutos;
+
     private Double valorTotal;
     private Double TotalPago;
-//    private Pagamento pagamento;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")
     private LocalDate data;
