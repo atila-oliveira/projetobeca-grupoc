@@ -24,7 +24,7 @@ public class Pedido {
 //  private List<Produto> listaProdutos;
     private Double valorTotal;
     private Double TotalPago;
-//  private Pagamento pagamento;
+//    private Pagamento pagamento;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")
     private LocalDate data;
