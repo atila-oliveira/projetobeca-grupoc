@@ -21,6 +21,9 @@ public class Cliente {
     private String nome;
 
     @NotBlank
+    private String telefone;
+
+    @NotBlank
     private String cpf;
 
     @NotBlank
