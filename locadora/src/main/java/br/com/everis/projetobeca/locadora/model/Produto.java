@@ -16,6 +16,8 @@ public class Produto {
    @GeneratedValue(strategy = GenerationType.AUTO)
    private Long id;
 
+   @OneToMany(mappedBy = "pedido" )
+   private Pedido pedido;
    @NotBlank
    private String nome;
 

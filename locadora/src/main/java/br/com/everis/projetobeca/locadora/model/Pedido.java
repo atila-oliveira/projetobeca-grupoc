@@ -21,7 +21,7 @@ public class Pedido {
     private Long id;
 
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
@@ -31,8 +31,8 @@ public class Pedido {
    @JoinColumn(name = "funcionario_id")
    private Funcionario funcionario;
 
-
-    //private List<Produto> listaProdutos;
+    @ManyToOne
+    private List<Produto> listaProdutos;
 
     private Double valorTotal;
     private Double TotalPago;
