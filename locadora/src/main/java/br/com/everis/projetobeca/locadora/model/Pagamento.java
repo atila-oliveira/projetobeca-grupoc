@@ -3,15 +3,17 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.http.converter.json.GsonBuilderUtils;
 import java.lang.*;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @Entity
 @Getter
 @Setter
-@Table(name = "Pagamento")
+@Table(name = "PAGAMENTOS")
 public class Pagamento {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO )
+    private Long id;
     private FormaPagamento formaPagamento;
     private double valorPago;
 
