@@ -4,9 +4,11 @@ import br.com.everis.projetobeca.locadora.model.Pedido;
 import br.com.everis.projetobeca.locadora.repository.PedidoRepository;
 import br.com.everis.projetobeca.locadora.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class PedidoServiceImplemen implements PedidoService {
 
     @Autowired

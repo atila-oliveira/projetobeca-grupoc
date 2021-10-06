@@ -4,9 +4,11 @@ import br.com.everis.projetobeca.locadora.model.Cliente;
 import br.com.everis.projetobeca.locadora.repository.ClienteRepository;
 import br.com.everis.projetobeca.locadora.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ClienteServiceImplem implements ClienteService {
 
     @Autowired

@@ -4,9 +4,11 @@ import br.com.everis.projetobeca.locadora.model.Funcionario;
 import br.com.everis.projetobeca.locadora.repository.FuncionarioRepository;
 import br.com.everis.projetobeca.locadora.service.FuncionarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class FuncionarioServiceImplem implements FuncionarioService {
 
     @Autowired

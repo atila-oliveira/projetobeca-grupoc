@@ -4,9 +4,11 @@ import br.com.everis.projetobeca.locadora.model.Produto;
 import br.com.everis.projetobeca.locadora.repository.ProdutoRepository;
 import br.com.everis.projetobeca.locadora.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ProdutoServiceImplemen implements ProdutoService {
 
     @Autowired
