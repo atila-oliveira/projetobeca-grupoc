@@ -1,6 +1,8 @@
 package br.com.everis.projetobeca.locadora.utils;
 
+import br.com.everis.projetobeca.locadora.model.Cliente;
 import br.com.everis.projetobeca.locadora.model.Funcionario;
+import br.com.everis.projetobeca.locadora.repository.ClienteRepository;
 import br.com.everis.projetobeca.locadora.repository.FuncionarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,8 +18,11 @@ public class TesteComBanco {
     @Autowired
     FuncionarioRepository funcionarioRepository;
 
-  @PostConstruct //tudo o que for inserido dentro do método irá ser executado conforme a aplicação vai subindo
-    public void savePosts(){
+    @Autowired
+    ClienteRepository clienteRepository;
+
+    @PostConstruct //tudo o que for inserido dentro do método irá ser executado conforme a aplicação vai subindo
+    public void saveDados(){
 
         List<Funcionario> funcionarioList = new ArrayList<>();
 
@@ -33,5 +38,22 @@ public class TesteComBanco {
             System.out.println(funcSaved.getId());
         }
 
-    }
+      List<Cliente> clienteList = new ArrayList<>();
+
+      Cliente cliente = new Cliente();
+      cliente.setNome("Teste");
+      cliente.setCpf("111111111");
+      cliente.setLogin("teste");
+      cliente.setSenha("123");
+      cliente.setEmail("teste@teste");
+      cliente.setPedido(cliente.getPedido());
+
+      clienteList.add(cliente);
+
+      for (Cliente client : clienteList) {
+          Cliente clientSaved = clienteRepository.save(client);
+          System.out.println(clientSaved.getId());
+      }
+
+  }
 }
