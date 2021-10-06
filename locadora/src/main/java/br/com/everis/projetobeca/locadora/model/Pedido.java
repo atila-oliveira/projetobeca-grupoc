@@ -20,18 +20,17 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-
     @OneToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
     private StatusPedido status;
 
-   @ManyToOne
-   @JoinColumn(name = "funcionario_id")
-   private Funcionario funcionario;
+  // @ManyToOne
+   //@JoinColumn(name = "funcionario_id")
+   //private Funcionario funcionario;
 
-   private boolean pagamento;
+   private  FormaPagamento formaPagamento;
 
     @OneToOne
     private Produto produto;
