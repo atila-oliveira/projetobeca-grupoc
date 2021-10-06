@@ -1,19 +1,15 @@
 package br.com.everis.projetobeca.locadora.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
 
 
 @Entity
 @Table(name = "PEDIDOS")
-@Getter
-@Setter
+@Data
 public class Pedido {
 
     @Id
@@ -23,6 +19,7 @@ public class Pedido {
     @OneToOne
     private Cliente cliente;
 
+    @Column(nullable = false, unique = false)
     private StatusPedido status;
 
    @ManyToOne
@@ -34,7 +31,10 @@ public class Pedido {
     @OneToOne
     private Produto produto;
 
+    @Column(nullable = false, unique = false)
     private Double valorTotal;
+
+    @Column(nullable = false, unique = false)
     private Double totalPago;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")

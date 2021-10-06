@@ -1,5 +1,6 @@
 package br.com.everis.projetobeca.locadora.model;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,8 +9,7 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "PRODUTOS")
-@Getter
-@Setter
+@Data
 public class Produto {
 
    @Id
@@ -18,13 +18,14 @@ public class Produto {
 
    @OneToOne
    private Pedido pedido;
-   @NotBlank
+
+   @Column(nullable = false, unique = false)
    private String nome;
 
-   @NotBlank
+   @Column(nullable = false, unique = false)
    private String descricao;
 
-   @NotBlank
+   @Column(nullable = false, unique = false)
    private Double preco;
 
    public Produto(){}

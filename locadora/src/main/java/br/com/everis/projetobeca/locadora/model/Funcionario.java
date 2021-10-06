@@ -1,5 +1,6 @@
 package br.com.everis.projetobeca.locadora.model;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,8 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "FUNCIONARIOS")
 public class Funcionario  {
@@ -20,13 +20,13 @@ public class Funcionario  {
     @OneToMany
     private List<Pedido> listaPedidos;
 
-    @NotBlank
+    @Column(nullable = false, unique = false)
     private String Nome;
 
-    @NotBlank
+    @Column(nullable = false, unique = true)
     private String login;
 
-    @NotBlank
+    @Column(nullable = false, unique = true)
     private String senha;
 
 }

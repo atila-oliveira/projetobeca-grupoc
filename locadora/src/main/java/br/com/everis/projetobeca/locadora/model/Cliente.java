@@ -18,25 +18,25 @@ public class Cliente {
     private Long id;
 
 //    @NotBlank //melhor no DTO - ja joga o erro 400
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = false)
     private String nome;
 
-//    @NotBlank
+    @Column(nullable = true, unique = false)
     private String telefone;
 
-//    @NotBlank
+    @Column(nullable = false, unique = true, length = 11)
     private String cpf;
 
-//    @NotBlank
+    @Column(nullable = false, unique = true)
     private String email;
 
-//    @NotBlank
+    @Column(nullable = false, unique = false)
     private String endereco;
 
-//    @NotBlank
+    @Column(nullable = false, unique = true)
     private String login;
 
-//    @NotBlank
+    @Column(nullable = false, unique = true)
     private String senha;
 
     @OneToOne(cascade = CascadeType.ALL) //cria um vinculo na exclusão
