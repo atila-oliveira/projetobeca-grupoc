@@ -9,7 +9,7 @@ public interface ClienteService {
 
     List<Cliente>findAll();
     Cliente findById(Long id);
-    Cliente save(Cliente ciente);
+    Cliente save(Cliente cliente);
 
 
 }

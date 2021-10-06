@@ -14,16 +14,16 @@ public class FuncionarioServiceImplem implements FuncionarioService {
 
     @Override
     public List<Funcionario> findAll() {
-        return null;
+        return funcionarioRepository.findAll();
     }
 
     @Override
     public Funcionario findById(Long id) {
-        return null;
+        return funcionarioRepository.findById(id).get();
     }
 
     @Override
     public Funcionario save(Funcionario funcionario) {
-        return null;
+        return funcionarioRepository.save(funcionario);
     }
 }

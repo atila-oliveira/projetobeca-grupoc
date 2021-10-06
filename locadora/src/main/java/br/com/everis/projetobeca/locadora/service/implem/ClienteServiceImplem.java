@@ -14,16 +14,16 @@ public class ClienteServiceImplem implements ClienteService {
 
     @Override
     public List<Cliente> findAll() {
-        return null;
+        return clienteRepository.findAll();
     }
 
     @Override
     public Cliente findById(Long id) {
-        return null;
+        return clienteRepository.findById(id).get();
     }
 
     @Override
-    public Cliente save(Cliente ciente) {
-        return null;
+    public Cliente save(Cliente cliente) {
+        return clienteRepository.save(cliente);
     }
 }

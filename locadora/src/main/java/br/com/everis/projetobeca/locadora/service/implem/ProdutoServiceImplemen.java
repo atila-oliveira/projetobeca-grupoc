@@ -14,16 +14,16 @@ public class ProdutoServiceImplemen implements ProdutoService {
 
     @Override
     public List<Produto> findAll() {
-        return null;
+        return produtoRepository.findAll();
     }
 
     @Override
     public Produto findById(Long id) {
-        return null;
+        return produtoRepository.findById(id).get();
     }
 
     @Override
     public Produto save(Produto produto) {
-        return null;
+        return produtoRepository.save(produto);
     }
 }

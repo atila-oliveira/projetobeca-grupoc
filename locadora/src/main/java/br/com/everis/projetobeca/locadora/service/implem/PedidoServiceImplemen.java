@@ -14,16 +14,16 @@ public class PedidoServiceImplemen implements PedidoService {
 
     @Override
     public List<Pedido> findAll() {
-        return null;
+        return pedidoRepository.findAll();
     }
 
     @Override
     public Pedido findById(Long id) {
-        return null;
+        return pedidoRepository.findById(id).get();
     }
 
     @Override
     public Pedido save(Pedido pedido) {
-        return null;
+        return pedidoRepository.save(pedido);
     }
 }
