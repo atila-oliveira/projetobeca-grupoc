@@ -27,12 +27,14 @@ public class Pedido {
 
     private StatusPedido status;
 
-   @OneToOne
+   @ManyToOne
    @JoinColumn(name = "funcionario_id")
    private Funcionario funcionario;
 
-    @ManyToOne
-    private List<Produto> listaProdutos;
+   private boolean pagamento;
+
+    @OneToOne
+    private Produto produto;
 
     private Double valorTotal;
     private Double TotalPago;

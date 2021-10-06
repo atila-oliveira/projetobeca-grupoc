@@ -37,6 +37,10 @@ public class Cliente {
 
     @NotBlank
     private String senha;
+
+    @OneToOne
+    @JoinColumn(name = "pedido_id")
+    private Pedido pedido;
 }
 
 
