@@ -17,7 +17,7 @@ public class ClienteController {
     ClienteService clienteService;
 
     @RequestMapping(value = "/clientes", method = RequestMethod.GET)
-    public ModelAndView getPost(){
+    public ModelAndView buscarCliente(){
         ModelAndView mv = new ModelAndView("clientes");
         List<Cliente> clientes = clienteService.findAll();
         mv.addObject("clientes", clientes);
