@@ -1,7 +1,6 @@
 package br.com.everis.projetobeca.locadora.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.persistence.*;
@@ -9,37 +8,38 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "CLIENTES")
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
+//@AllArgsConstructor
 public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotBlank
+//    @NotBlank //melhor no DTO - ja joga o erro 400
+    @Column(nullable = false, unique = true)
     private String nome;
 
-    @NotBlank
+//    @NotBlank
     private String telefone;
 
-    @NotBlank
+//    @NotBlank
     private String cpf;
 
-    @NotBlank
+//    @NotBlank
     private String email;
 
-    @NotBlank
+//    @NotBlank
     private String endereco;
 
-    @NotBlank
+//    @NotBlank
     private String login;
 
-    @NotBlank
+//    @NotBlank
     private String senha;
 
-    @OneToOne
-    @JoinColumn(name = "pedido_id")
+    @OneToOne(cascade = CascadeType.ALL) //cria um vinculo na exclusão
     private Pedido pedido;
 }
 

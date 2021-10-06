@@ -21,14 +21,13 @@ public class Pedido {
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
     private StatusPedido status;
 
-  // @ManyToOne
-   //@JoinColumn(name = "funcionario_id")
-   //private Funcionario funcionario;
+   @ManyToOne
+   @JoinColumn(name = "funcionario_id")
+   private Funcionario funcionario;
 
    private  FormaPagamento formaPagamento;
 
@@ -36,7 +35,7 @@ public class Pedido {
     private Produto produto;
 
     private Double valorTotal;
-    private Double TotalPago;
+    private Double totalPago;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")
     private LocalDate data;
