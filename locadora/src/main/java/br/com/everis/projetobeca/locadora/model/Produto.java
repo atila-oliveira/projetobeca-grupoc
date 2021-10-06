@@ -22,9 +22,16 @@ public class Produto {
    private String nome;
 
    @NotBlank
-   private String descrição;
+   private String descricao;
 
    @NotBlank
    private Double preco;
+
+   public Produto(){}
+   public Produto(String nome, Double preco, String descricao){
+      this.nome = nome;
+      this.preco = preco;
+      this.descricao = descricao;
+   }
 
 }
