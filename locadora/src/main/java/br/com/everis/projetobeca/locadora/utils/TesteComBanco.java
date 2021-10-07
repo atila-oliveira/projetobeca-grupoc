@@ -35,7 +35,7 @@ public class TesteComBanco {
 
         for (Funcionario func : funcionarioList) {
             Funcionario funcSaved = funcionarioRepository.save(func);
-            System.out.println(funcSaved.getId());
+
         }
 
 
@@ -54,7 +54,6 @@ public class TesteComBanco {
 
       for (Cliente client : clienteList) {
           Cliente clientSaved = clienteRepository.save(client);
-          System.out.println(clientSaved.getId());
       }
 
   }
