@@ -16,6 +16,8 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private Long numero;
+
     @OneToOne
     private Cliente cliente;
 
@@ -39,6 +41,5 @@ public class Pedido {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")
     private LocalDate data;
-
 
 }
