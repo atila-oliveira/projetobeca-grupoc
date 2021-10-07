@@ -36,7 +36,7 @@ public class Cliente {
     @Column(nullable = false, unique = true)
     private String login;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = false)
     private String senha;
 
     @OneToOne(cascade = CascadeType.ALL) //cria um vinculo na exclusão
