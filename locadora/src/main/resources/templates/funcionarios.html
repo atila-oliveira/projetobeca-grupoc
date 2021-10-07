@@ -12,7 +12,7 @@
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Locadora</span>
-            <a href="/newpost" class="btn btn-primary" role="button">Novo Pedido</a>
+            <a href="/newpost" class="btn btn-primary" role="button">Novo Funcionario</a>
         </div>
     </nav>
 </header>
@@ -22,15 +22,15 @@
 
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb" style="background-color: white; padding-left: 0px;">
-                <li class="breadcrumb-item active" aria-current="page">Clientes</li>
+                <li class="breadcrumb-item active" aria-current="page">Funcionarios</li>
             </ol>
         </nav>
 
 
-        <div class="card shadow-sm bg-white rounded" style="margin-top: 20px;" th:each="cliente : ${clientes}">
+        <div class="card shadow-sm bg-white rounded" style="margin-top: 20px;" th:each="funcionario : ${funcionarios}">
             <div class="card-body">
                 <p class="card-subtitle mb-2 text-muted" style="font-size: 0.8rem;">
-                    <span th:text="${cliente.nome} "></span>
+                    <span th:text="${funcionario.nome} "></span>
                 </p>
             </div>
         </div>

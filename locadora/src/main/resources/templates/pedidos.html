@@ -22,15 +22,15 @@
 
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb" style="background-color: white; padding-left: 0px;">
-                <li class="breadcrumb-item active" aria-current="page">Clientes</li>
+                <li class="breadcrumb-item active" aria-current="page">Pedidos</li>
             </ol>
         </nav>
 
 
-        <div class="card shadow-sm bg-white rounded" style="margin-top: 20px;" th:each="cliente : ${clientes}">
+        <div class="card shadow-sm bg-white rounded" style="margin-top: 20px;" th:each="pedido : ${pedidos}">
             <div class="card-body">
                 <p class="card-subtitle mb-2 text-muted" style="font-size: 0.8rem;">
-                    <span th:text="${cliente.nome} "></span>
+                    <span th:text="${pedidos.numero} "> Teste</span>
                 </p>
             </div>
         </div>
