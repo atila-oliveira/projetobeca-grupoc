@@ -21,7 +21,7 @@ public class Pedido {
     @OneToOne
     private Cliente cliente;
 
-    @Column(nullable = false, unique = false)
+//    @Column(nullable = false, unique = false)
     private StatusPedido status;
 
    @ManyToOne
@@ -33,10 +33,10 @@ public class Pedido {
     @OneToOne
     private Produto produto;
 
-    @Column(nullable = false, unique = false)
+//    @Column(nullable = false, unique = false)
     private Double valorTotal;
 
-    @Column(nullable = false, unique = false)
+//    @Column(nullable = false, unique = false)
     private Double totalPago;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")

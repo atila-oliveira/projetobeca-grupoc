@@ -19,13 +19,13 @@ public class Produto {
    @OneToOne
    private Pedido pedido;
 
-   @Column(nullable = false, unique = false)
+//   @Column(nullable = false, unique = false)
    private String nome;
 
-   @Column(nullable = false, unique = false)
+//   @Column(nullable = false, unique = false)
    private String descricao;
 
-   @Column(nullable = false, unique = false)
+//   @Column(nullable = false, unique = false)
    private Double preco;
 
    public Produto(){}
