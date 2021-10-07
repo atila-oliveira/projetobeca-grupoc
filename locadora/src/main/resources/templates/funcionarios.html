@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Locadora</title>
+    <!--CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Locadora</span>
+            <a href="/newpost" class="btn btn-primary" role="button">Novo Funcionario</a>
+        </div>
+    </nav>
+</header>
+
+<section>
+    <div class="container" style="width: 60%; padding-bottom: 30px;">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="background-color: white; padding-left: 0px;">
+                <li class="breadcrumb-item active" aria-current="page">Funcionarios</li>
+            </ol>
+        </nav>
+
+
+        <div class="card shadow-sm bg-white rounded" style="margin-top: 20px;" th:each="funcionario : ${funcionarios}">
+            <div class="card-body">
+                <p class="card-subtitle mb-2 text-muted" style="font-size: 0.8rem;">
+                    <span th:text="${funcionario.nome} "></span>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+</body>

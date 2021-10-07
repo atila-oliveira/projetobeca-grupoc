@@ -16,11 +16,11 @@ public class FuncionarioController {
     @Autowired
     FuncionarioService funcionarioService;
 
-    @RequestMapping(value = "/funcionario", method = RequestMethod.GET)
+    @RequestMapping(value = "/funcionarios", method = RequestMethod.GET)
     public ModelAndView buscarFuncionario(){
-        ModelAndView mv = new ModelAndView("funcionario");
-        List<Funcionario> funcionario = funcionarioService.findAll();
-        mv.addObject("funcionario", funcionario);
+        ModelAndView mv = new ModelAndView("funcionarios");
+        List<Funcionario> funcionarios = funcionarioService.findAll();
+        mv.addObject("funcionarios", funcionarios);
         return mv;
     }
 }
