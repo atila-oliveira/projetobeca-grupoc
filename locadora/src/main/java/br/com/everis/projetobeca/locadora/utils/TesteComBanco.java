@@ -38,14 +38,16 @@ public class TesteComBanco {
             System.out.println(funcSaved.getId());
         }
 
+
       List<Cliente> clienteList = new ArrayList<>();
 
       Cliente cliente = new Cliente();
       cliente.setNome("Teste");
-      cliente.setCpf("111111111");
+      cliente.setCpf("11111111111");
       cliente.setLogin("teste");
       cliente.setSenha("123");
       cliente.setEmail("teste@teste");
+      cliente.setEndereco("Rua de lugar nenhum");
       cliente.setPedido(cliente.getPedido());
 
       clienteList.add(cliente);
