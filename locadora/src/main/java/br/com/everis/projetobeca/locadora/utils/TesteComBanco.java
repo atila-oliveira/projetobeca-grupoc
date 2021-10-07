@@ -26,7 +26,7 @@ public class TesteComBanco {
     @Autowired
     ClienteRepository clienteRepository;
 
-    @PostConstruct //tudo o que for inserido dentro do método irá ser executado conforme a aplicação vai subindo
+    //@PostConstruct //tudo o que for inserido dentro do método irá ser executado conforme a aplicação vai subindo
     public void saveDados() {
 
         List<Funcionario> funcionarioList = new ArrayList<>();

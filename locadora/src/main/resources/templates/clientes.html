@@ -27,26 +27,25 @@
         </nav>
 
 
-        <div class="card shadow-sm bg-white rounded" style="margin-top: 20px;" th:each="cliente : ${clientes}">
-            <div class="card-body">
-
-                <table class="table">
+        <div class="card shadow-sm bg-white rounded" style="margin-top: 20px;" >
+               <table class="table">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">ID</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Telefone</th>
                         <th scope="col">E-mail</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
+                    <tr  th:each="cliente : ${clientes}">
+                        <th th:text="${cliente.id}" ></th>
                         <td th:text="${cliente.nome} "></td>
                         <td th:text="${cliente.telefone} "></td>
                         <td th:text="${cliente.email} "></td>
                     </tr>
-            </div>
+                    </tbody>
+                </table>
         </div>
 
     </div>
