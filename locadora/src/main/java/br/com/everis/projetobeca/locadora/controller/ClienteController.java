@@ -37,11 +37,11 @@ public class ClienteController {
     public String saveCliente(@Valid Cliente cliente, BindingResult result, RedirectAttributes attributes){
         if(result.hasErrors() ) {
             attributes.addFlashAttribute("messagem", "Verifique de os campos obrigatórios foram preenchidos");
-            return "redirect://novocliente";
+            return "redirect:/novocliente";
         }
 
         clienteService.save(cliente);
-        return "redirect://clientes";
+        return "redirect:/clientes";
     }
 }
 
