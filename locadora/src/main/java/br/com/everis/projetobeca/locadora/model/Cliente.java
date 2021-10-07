@@ -14,7 +14,7 @@ import javax.validation.constraints.NotBlank;
 public class Cliente {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 //    @NotBlank //melhor no DTO - ja joga o erro 400
@@ -24,16 +24,16 @@ public class Cliente {
     @Column(nullable = true, unique = false)
     private String telefone;
 
-    @Column(nullable = false, unique = true, length = 11)
+    @Column(nullable = false, unique = false, length = 11)
     private String cpf;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = false)
     private String email;
 
     @Column(nullable = false, unique = false)
     private String endereco;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = false)
     private String login;
 
     @Column(nullable = false, unique = false)
