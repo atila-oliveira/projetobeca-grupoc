@@ -1,5 +1,6 @@
 package br.com.everis.projetobeca.locadora.service.implem;
 
+import br.com.everis.projetobeca.locadora.controller.dto.ProdutoDTO;
 import br.com.everis.projetobeca.locadora.model.Produto;
 import br.com.everis.projetobeca.locadora.repository.ProdutoRepository;
 import br.com.everis.projetobeca.locadora.service.ProdutoService;
@@ -26,6 +27,6 @@ public class ProdutoServiceImplemen implements ProdutoService {
 
     @Override
     public Produto save(Produto produto) {
-        return produtoRepository.save(produto);
+        return produtoRepository.save(new Produto());
     }
 }

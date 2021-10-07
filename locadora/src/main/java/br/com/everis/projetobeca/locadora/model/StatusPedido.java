@@ -5,6 +5,4 @@ public enum StatusPedido {
     AGUARDANDO_STATUS,
     FECHADO;
 
-
-
 }

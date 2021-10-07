@@ -17,7 +17,7 @@ public class PedidoController {
     @Autowired
     PedidoService  pedidoService;
 
-    @RequestMapping(value = "/pedidos", method = RequestMethod.GET)
+    @RequestMapping(value = "locadora/pedidos", method = RequestMethod.GET)
     public ModelAndView buscarPedido(){
         ModelAndView mv = new ModelAndView("pedidos");
         List<Pedido> pedidos = pedidoService.findAll();
