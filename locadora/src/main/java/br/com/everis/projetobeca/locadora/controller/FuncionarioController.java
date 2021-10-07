@@ -16,7 +16,7 @@ public class FuncionarioController {
     @Autowired
     FuncionarioService funcionarioService;
 
-    @RequestMapping(value = "/funcionarios", method = RequestMethod.GET)
+    @RequestMapping(value = "locadora/funcionarios", method = RequestMethod.GET)
     public ModelAndView buscarFuncionario(){
         ModelAndView mv = new ModelAndView("funcionarios");
         List<Funcionario> funcionarios = funcionarioService.findAll();

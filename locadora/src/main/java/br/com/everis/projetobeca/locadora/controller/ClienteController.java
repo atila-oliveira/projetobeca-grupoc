@@ -20,7 +20,7 @@ public class ClienteController {
     @Autowired
     ClienteService clienteService;
 
-    @RequestMapping(value = "/clientes", method = RequestMethod.GET)
+    @RequestMapping(value = "/locadora/clientes", method = RequestMethod.GET)
     public ModelAndView buscarCliente(){
         ModelAndView mv = new ModelAndView("clientes");
         List<Cliente> clientes = clienteService.findAll();

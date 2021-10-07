@@ -13,19 +13,19 @@ import javax.validation.constraints.NotBlank;
 public class Produto {
 
    @Id
-   @GeneratedValue(strategy = GenerationType.AUTO)
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
 
    @OneToOne
    private Pedido pedido;
 
-   @Column(nullable = false, unique = false)
+//   @Column(nullable = false, unique = false)
    private String nome;
 
-   @Column(nullable = false, unique = false)
+//   @Column(nullable = false, unique = false)
    private String descricao;
 
-   @Column(nullable = false, unique = false)
+//   @Column(nullable = false, unique = false)
    private Double preco;
 
    public Produto(){}

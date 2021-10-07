@@ -14,19 +14,19 @@ import java.util.List;
 public class Funcionario  {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToMany
     private List<Pedido> listaPedidos;
 
-    @Column(nullable = false, unique = false)
+//    @Column(nullable = false, unique = false)
     private String Nome;
 
-    @Column(nullable = false, unique = true)
+//    @Column(nullable = false, unique = true)
     private String login;
 
-    @Column(nullable = false, unique = true)
+//    @Column(nullable = false, unique = true)
     private String senha;
 
 }

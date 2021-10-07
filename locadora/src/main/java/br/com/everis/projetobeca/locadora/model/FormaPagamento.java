@@ -5,5 +5,4 @@ public enum FormaPagamento {
     CARTAO_DEBITO,
     DINHEIRO,
     CHEQUE,
-
 }

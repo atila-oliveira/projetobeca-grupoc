@@ -20,7 +20,7 @@ public class ProdutoDTO {
         this.preco = produto.getPreco();
     }
 
-    public List<ProdutoDTO> converter(List<Produto> produtos){
+    public List<ProdutoDTO> converterProdutos(List<Produto> produtos){
         return produtos.stream().map(ProdutoDTO::new).collect(Collectors.toList()); //pra cada produtoDTO chama um produto com parametro e adiciona em uma lista
     }
 }
