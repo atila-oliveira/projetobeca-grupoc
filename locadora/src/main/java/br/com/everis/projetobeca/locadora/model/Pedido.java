@@ -2,6 +2,7 @@ package br.com.everis.projetobeca.locadora.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -10,33 +11,35 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "PEDIDOS")
 @Data
+@NoArgsConstructor
 public class Pedido {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long numero;
 
     @OneToOne
     private Cliente cliente;
 
-//    @Column(nullable = false, unique = false)
+    @Column(nullable = false, unique = false)
     private StatusPedido status;
 
-   @ManyToOne
-   @JoinColumn(name = "funcionario_id")
-   private Funcionario funcionario;
-
-   private  FormaPagamento formaPagamento;
+    @ManyToOne
+    @JoinColumn(name = "funcionario_id")
+    private Funcionario funcionario;
 
     @OneToOne
     private Produto produto;
 
-//    @Column(nullable = false, unique = false)
+    private  FormaPagamento formaPagamento;
+
+    @Column(nullable = false, unique = false)
     private Double valorTotal;
 
-//    @Column(nullable = false, unique = false)
+    @Column(nullable = false, unique = false)
     private Double totalPago;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")

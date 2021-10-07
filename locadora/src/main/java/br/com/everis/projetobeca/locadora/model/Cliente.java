@@ -10,14 +10,13 @@ import javax.validation.constraints.NotBlank;
 @Table(name = "CLIENTES")
 @Data
 @NoArgsConstructor
-//@AllArgsConstructor
+//@AllArgsConstructor - Cria construtor com todos os argumentos
 public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @NotBlank //melhor no DTO - ja joga o erro 400
     @Column(nullable = false, unique = false)
     private String nome;
 
