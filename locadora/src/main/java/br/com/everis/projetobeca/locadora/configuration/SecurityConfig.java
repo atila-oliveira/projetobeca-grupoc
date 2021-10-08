@@ -19,8 +19,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/index",
             "/pedidos",
             "/indexfuncionario",
-            "/novoproduto",
-            "/produtos",
             "/novopedido"
     };
 
