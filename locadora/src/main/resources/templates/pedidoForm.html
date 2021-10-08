@@ -31,11 +31,7 @@
                 <div class="form-group">
                     Nome do Produto: <input type="text" class="form-control" name="nome" placeholder="Digite o nome do produto aqui *">
                 </div><br>
-                <div class="form-group">
-                    Preço: <input type="number" class="form-control" name="preco" placeholder="Digite o número do pedido aqui *">
-                </div><br>
-
-                Forma de pagamento:
+                 Forma de pagamento:
                 <select class="form-select">
                     <option>Cartão de Crédito</option>
                     <option>Cartão de Débito</option>
@@ -50,6 +46,9 @@
                 <div class="form-group">
                     Total Pago: <input type="number" class="form-control" name="totalPago" readonly>
                 </div>
+                <div class="form-group">
+                    Numero do pedido: <input type="number" class="form-control" name="valorTotal" readonly value="th:text=${produto.numero}">
+                </div><br>
 
 
                 <small class="form-text text-muted">(*) Campos obrigatórios!</small><br>
