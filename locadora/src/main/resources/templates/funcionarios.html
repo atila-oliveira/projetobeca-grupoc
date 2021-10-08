@@ -12,7 +12,7 @@
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Locadora</span>
-            <a href="/newpost" class="btn btn-primary" role="button">Novo Funcionario</a>
+            <a href="/novofuncionario" class="btn btn-primary" role="button">Novo Funcionario</a>
         </div>
     </nav>
 </header>
@@ -27,13 +27,25 @@
         </nav>
 
 
-        <div class="card shadow-sm bg-white rounded" style="margin-top: 20px;" th:each="funcionario : ${funcionarios}">
-            <div class="card-body">
-                <p class="card-subtitle mb-2 text-muted" style="font-size: 0.8rem;">
-                    <span th:text="${funcionario.nome} "></span>
-                </p>
-            </div>
+        <div class="card shadow-sm bg-white rounded" style="margin-top: 20px;" >
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">login</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr  th:each="funcionario : ${funcionarios}">
+                    <th th:text="${funcionario.id}" ></th>
+                    <td th:text="${funcionario.nome} "></td>
+                    <td th:text="${funcionario.login} "></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
+
 
     </div>
 
