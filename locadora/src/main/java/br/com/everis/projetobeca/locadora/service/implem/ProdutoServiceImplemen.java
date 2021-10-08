@@ -27,6 +27,6 @@ public class ProdutoServiceImplemen implements ProdutoService {
 
     @Override
     public Produto save(Produto produto) {
-        return produtoRepository.save(new Produto());
+        return produtoRepository.save(produto);
     }
 }

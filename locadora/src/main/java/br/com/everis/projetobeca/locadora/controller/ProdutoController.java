@@ -21,9 +21,9 @@ public class ProdutoController {
     @Autowired
     ProdutoService produtoService;
 
-    @RequestMapping(value = "/locadora/produtos", method = RequestMethod.GET)
+    @RequestMapping(value = "/produtos", method = RequestMethod.GET)
     public ModelAndView buscarProduto(){
-        ModelAndView mv = new ModelAndView("clientes");
+        ModelAndView mv = new ModelAndView("produtos");
         List<Produto> produtos = produtoService.findAll();
         mv.addObject("produtos", produtos);
         return mv;
