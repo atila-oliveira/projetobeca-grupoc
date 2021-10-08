@@ -39,17 +39,17 @@
                 <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Numero</th>
-                    <th scope="col">Telefone</th>
-                    <th scope="col">E-maila</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Preço</th>
+                    <th scope="col">Forma de Pagamento</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr  th:each="pedido : ${pedidos}">
-                    <th th:text="${cliente.id}" ></th>
-                    <td th:text="${cliente.nome} "></td>
-                    <td th:text="${cliente.telefone} "></td>
-                    <td th:text="${cliente.email} "></td>
+                    <th th:text="${pedido.id}" ></th>
+                    <td th:text="${pedido.nome} "></td>
+                    <td th:text="${pedido.preco} "></td>
+                    <td th:text="${pedido.formaPagamento} "></td>
                 </tr>
                 </tbody>
             </table>
