@@ -26,16 +26,27 @@
             </ol>
         </nav>
 
-
-        <div class="card shadow-sm bg-white rounded" style="margin-top: 20px;" th:each="produto : ${produtos}">
-            <div class="card-body">
-                <p class="card-subtitle mb-2 text-muted" style="font-size: 0.8rem;">
-                    <span th:text="${produto.nome} "> Teste</span>
-                    <span th:text="${produto.preco} "> Teste</span>
-                    <span th:text="${produto.descricao} "> Teste</span>
-                </p>
-            </div>
+        <div class="card shadow-sm bg-white rounded" style="margin-top: 20px;" >
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Preço</th>
+                    <th scope="col">Descrição</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr  th:each="produto : ${produtos}">
+                    <th th:text="${produto.id}" ></th>
+                    <td th:text="${produto.nome} "></td>
+                    <td th:text="${produto.preco} "></td>
+                    <td th:text="${produto.descricao} "></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
+
 
     </div>
 
