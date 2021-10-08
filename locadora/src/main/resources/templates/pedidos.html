@@ -12,7 +12,7 @@
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Locadora</span>
-            <a href="/newpost" class="btn btn-primary" role="button">Novo Pedido</a>
+            <a href="/novopedido" class="btn btn-primary" role="button">Novo Pedido</a>
         </div>
     </nav>
 </header>
@@ -34,6 +34,28 @@
                 </p>
             </div>
         </div>
+        <div class="card shadow-sm bg-white rounded" style="margin-top: 20px;" >
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Numero</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col">E-mail</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr  th:each="pedido : ${pedidos}">
+                    <th th:text="${cliente.id}" ></th>
+                    <td th:text="${cliente.nome} "></td>
+                    <td th:text="${cliente.telefone} "></td>
+                    <td th:text="${cliente.email} "></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
 
     </div>
 
