@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Entity
@@ -18,9 +19,6 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long numero;
-
     @OneToOne
     private Cliente cliente;
 
@@ -31,18 +29,16 @@ public class Pedido {
     @JoinColumn(name = "funcionario_id")
     private Funcionario funcionario;
 
-    @OneToOne
-    private Produto produto;
+    @ManyToMany
+    @JoinColumn(referencedColumnName = "idProduto", name = "idPedido")
+    private List<Produto> produtos;
 
     private  FormaPagamento formaPagamento;
 
-    @Column(nullable = false, unique = false)
     private Double valorTotal;
 
-    @Column(nullable = false, unique = false)
     private Double totalPago;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")
     private LocalDate data;
-
 }
