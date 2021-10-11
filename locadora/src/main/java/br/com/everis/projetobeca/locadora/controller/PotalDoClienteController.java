@@ -1,7 +1,9 @@
 package br.com.everis.projetobeca.locadora.controller;
 
 import br.com.everis.projetobeca.locadora.model.Cliente;
+import br.com.everis.projetobeca.locadora.model.Produto;
 import br.com.everis.projetobeca.locadora.service.ClienteService;
+import br.com.everis.projetobeca.locadora.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -16,11 +18,14 @@ import java.util.List;
 @Controller
 public class PotalDoClienteController {
 
+    @Autowired
+    ProdutoService produtoService;
 
     @RequestMapping(value = "/portalcliente", method = RequestMethod.GET)
     public ModelAndView paginaPrincipalCliente(){
         ModelAndView mv = new ModelAndView("portalcliente");
-        mv.addObject("portalcliente");
+        List<Produto> produtos = produtoService.findAll();
+        mv.addObject("produtos", produtos);
         return mv;
     }
 
