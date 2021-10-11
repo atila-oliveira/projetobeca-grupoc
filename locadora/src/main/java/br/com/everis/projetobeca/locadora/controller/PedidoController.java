@@ -64,13 +64,13 @@ public class PedidoController {
         return mv;
     }
 
-    @RequestMapping(value = "/pedido/novoproduto", method = RequestMethod.PATCH)
+/*    @RequestMapping(value = "/pedido/novoproduto", method = RequestMethod.PATCH)
     public void adicionarProdutoPedido(Pedido pedido, Produto produto, BindingResult result){
         pedido.getProdutos().add(produto);
 
         pedidoService.save(pedido);
 
         return "redirect:/{" + pedido.getId() + "}/novoproduto";
-    }
+    }*/
 
 }
