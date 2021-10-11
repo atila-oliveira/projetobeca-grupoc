@@ -34,7 +34,7 @@ public class PedidoController {
         return "pedidoForm";
     }
 
-    @RequestMapping(value = "/novopedidos", method = RequestMethod.POST)
+    @RequestMapping(value = "/novopedido", method = RequestMethod.POST)
     public String savePedido(@Valid Pedido pedido, BindingResult result, RedirectAttributes attributes){
         if(result.hasErrors() ) {
             attributes.addFlashAttribute("messagem", "Verifique de os campos obrigatórios foram preenchidos");

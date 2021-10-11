@@ -26,6 +26,37 @@ public class ClienteServiceImplem implements ClienteService {
 
     @Override
     public Cliente save(Cliente cliente) {
-        return clienteRepository.save(cliente);
+        if (verificarCPF(cliente) && verificarNome(cliente) && verificarTelefone(cliente)){
+            return clienteRepository.save(cliente);
+        }
+        return null;
+    }
+
+    public boolean verificarCPF(Cliente cliente){
+        if (cliente.getCpf().length() != 11){
+            return false;
+        }
+        return true;
+    }
+
+    public boolean verificarNome(Cliente cliente){
+        if(cliente.getNome().contains("0") || cliente.getNome().contains("1") || cliente.getNome().contains("2") || cliente.getNome().contains("3") ||
+                cliente.getNome().contains("4") || cliente.getNome().contains("5") || cliente.getNome().contains("6") || cliente.getNome().contains("7")||
+                cliente.getNome().contains("8") || cliente.getNome().contains("9")){
+            return false;
+        }
+        return true;
+    }
+
+    public boolean verificarTelefone(Cliente cliente){
+        if (cliente.getTelefone() == null){
+            return false;
+        }
+        for (char letra : cliente.getTelefone().toCharArray()){
+            if(letra < '0' || letra > '9'){
+                return false;
+            }
+        }
+        return true;
     }
 }

@@ -40,6 +40,7 @@ public class Cliente {
 
     @OneToOne(cascade = CascadeType.ALL) //cria um vinculo na exclusão
     private Pedido pedido;
+
 }
 
 

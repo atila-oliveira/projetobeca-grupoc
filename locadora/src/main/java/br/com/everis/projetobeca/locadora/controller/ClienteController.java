@@ -39,7 +39,6 @@ public class ClienteController {
             attributes.addFlashAttribute("messagem", "Verifique de os campos obrigatórios foram preenchidos");
             return "redirect:/novocliente";
         }
-
         clienteService.save(cliente);
         return "redirect:/clientes";
     }
