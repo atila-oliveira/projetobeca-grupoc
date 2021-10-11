@@ -21,7 +21,6 @@ public class PedidoDTO {
         this.statusPedido = pedido.getStatus();
         this.formaPagamento = pedido.getFormaPagamento();
         this.valorTotal = pedido.getValorTotal();
-        this.totalPago = pedido.getTotalPago();
         this.data = pedido.getData();
     }
 

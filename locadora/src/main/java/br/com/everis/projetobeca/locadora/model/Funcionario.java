@@ -23,7 +23,7 @@ public class Funcionario  {
     private List<Pedido> listaPedidos;
 
     @Column(nullable = false, unique = false)
-    private String Nome;
+    private String nome;
 
     @Column(nullable = false, unique = true)
     private String login;

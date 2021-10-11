@@ -28,35 +28,25 @@
 
         <div>
             <form method="post">
-                <select th:field="*{pedido}">
-                    <option th:each="produto : ${produtos}" th:value="${produto.id}" th:text="${produto.nome}"></option>
-                </select>
-<!--                <div class="form-group">-->
-<!--                    Nome do Produto: <input type="text" class="form-control" name="nome" placeholder="Digite o nome do produto aqui *">-->
-<!--                </div>-->
-<!--                <br>-->
-<!--                 Forma de pagamento:-->
-<!--                <select class="form-select">-->
-<!--                    <option>Cartão de Crédito</option>-->
-<!--                    <option>Cartão de Débito</option>-->
-<!--                    <option>Dinheiro</option>-->
-<!--                    <option>Cheque</option>-->
-<!--                </select><br>-->
 
-<!--                <div class="form-group">-->
-<!--                    Valor Total: <input type="number" class="form-control" name="valorTotal" readonly value="th:text=${produto.preco}">-->
-<!--                </div><br>-->
+                <div class="form-group">
+                    Nome do Cliente: <input type="text" class="form-control" name="cliente" placeholder="Digite seu nome">
+                </div>
 
-<!--                <div class="form-group">-->
-<!--                    Total Pago: <input type="number" class="form-control" name="totalPago" readonly>-->
-<!--                </div>-->
-<!--                <div class="form-group">-->
-<!--                    Numero do pedido: <input type="number" class="form-control" name="valorTotal" readonly value="th:text=${produto.numero}">-->
-<!--                </div><br>-->
+                <div class="form-group">
+                    Nome do Produto: <input type="text" class="form-control" name="produto" placeholder="Digite o produto que deseja alugar">
+                </div>
 
+                <div class="form-group">
+                    Tempo de Locação (em dias): <input type="number" class="form-control" name="tempoDeLocacao" placeholder="Quantos dias deseja ficar com o produto?">
+                </div>
 
-                <small class="form-text text-muted">(*) Campos obrigatórios!</small><br>
-                <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Adicionar Produtos</button>
+                <div>
+                    <input value=th:text="${produto.preco}"/>
+                </div>
+
+                 <small class="form-text text-muted">(*) Campos obrigatórios!</small><br>
+                <button type="submit" class="btn btn-secondary" style="margin-top: 10px;">Fechar Pedido</button>
                 <a href="/produtos" class="btn btn-light" role="button" style="margin-top: 10px;">Cancelar</a>
 
             </form>

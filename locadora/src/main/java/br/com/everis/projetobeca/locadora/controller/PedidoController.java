@@ -1,8 +1,10 @@
 package br.com.everis.projetobeca.locadora.controller;
 
 import br.com.everis.projetobeca.locadora.model.Cliente;
+import br.com.everis.projetobeca.locadora.model.Funcionario;
 import br.com.everis.projetobeca.locadora.model.Pedido;
 import br.com.everis.projetobeca.locadora.model.Produto;
+import br.com.everis.projetobeca.locadora.service.FuncionarioService;
 import br.com.everis.projetobeca.locadora.service.PedidoService;
 import br.com.everis.projetobeca.locadora.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,38 @@ import java.util.List;
 @Controller
 public class PedidoController {
 
+    @Autowired
+    PedidoService pedidoService;
+
+    @RequestMapping(value = "/pedidos", method = RequestMethod.GET)
+    public ModelAndView buscarPedidos(){
+        ModelAndView mv = new ModelAndView("pedidos");
+        List<Pedido> pedidos = pedidoService.findAll();
+        mv.addObject("pedidos", pedidos);
+        return mv;
+    }
+
+    @RequestMapping(value = "/novopedido", method = RequestMethod.GET)
+    public String getPedidoForm(){
+        return "pedidoForm";
+    }
+
+    @RequestMapping(value = "/novopedido", method = RequestMethod.POST)
+    public String savePedido(@Valid Pedido pedido, BindingResult result, RedirectAttributes attributes){
+        if(result.hasErrors() ) {
+            attributes.addFlashAttribute("messagem", "Verifique de os campos obrigatórios foram preenchidos");
+            return "redirect:/novopedido";
+        }
+
+        pedido.setValorTotal(50.0);
+        pedidoService.save(pedido);
+        return "redirect:/pedidos";
+    }
+
+}
+
+
+/*
     @Autowired
     private PedidoService  pedidoService;
 
@@ -50,6 +84,8 @@ public class PedidoController {
 
         return "redirect:/{" + pedido.getId() + "}/novoproduto";
     }
+*/
+/*
 
     @RequestMapping(value = "/{idPedido}/novoproduto", method = RequestMethod.GET)
     public ModelAndView adicionarProdutoAoPedido(@PathVariable("idPedido") Long idPedido){
@@ -63,7 +99,10 @@ public class PedidoController {
 
         return mv;
     }
+*//*
 
+
+*/
 /*    @RequestMapping(value = "/pedido/novoproduto", method = RequestMethod.PATCH)
     public void adicionarProdutoPedido(Pedido pedido, Produto produto, BindingResult result){
         pedido.getProdutos().add(produto);
@@ -71,6 +110,8 @@ public class PedidoController {
         pedidoService.save(pedido);
 
         return "redirect:/{" + pedido.getId() + "}/novoproduto";
-    }*/
+    }*//*
+
 
 }
+*/
