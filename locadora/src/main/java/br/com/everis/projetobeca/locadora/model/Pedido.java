@@ -23,22 +23,19 @@ public class Pedido {
     private Cliente cliente;
 
     @Column(nullable = false, unique = false)
-    private StatusPedido status;
-
-    @ManyToOne
-    @JoinColumn(name = "funcionario_id")
-    private Funcionario funcionario;
+    private StatusPedido status = StatusPedido.ABERTO;
 
     @ManyToMany
     @JoinColumn(referencedColumnName = "idProduto", name = "idPedido")
     private List<Produto> produtos;
 
-    private  FormaPagamento formaPagamento;
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")
+    private LocalDate data;
+
+    private Double tempoDeLocacao;
 
     private Double valorTotal;
 
-    private Double totalPago;
+    private  FormaPagamento formaPagamento;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")
-    private LocalDate data;
 }
