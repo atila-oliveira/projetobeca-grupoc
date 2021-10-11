@@ -1,6 +1,7 @@
 package br.com.everis.projetobeca.locadora.service.implem;
 
 import br.com.everis.projetobeca.locadora.controller.dto.ProdutoDTO;
+import br.com.everis.projetobeca.locadora.model.Cliente;
 import br.com.everis.projetobeca.locadora.model.Produto;
 import br.com.everis.projetobeca.locadora.repository.ProdutoRepository;
 import br.com.everis.projetobeca.locadora.service.ProdutoService;
@@ -27,6 +28,17 @@ public class ProdutoServiceImplemen implements ProdutoService {
 
     @Override
     public Produto save(Produto produto) {
-        return produtoRepository.save(produto);
+        if (verificarPreco(produto)){
+            return produtoRepository.save(produto);
+        }
+        return null;
+    }
+
+    public boolean verificarPreco(Produto produto){
+        if (produto.getPreco() == null || produto.getPreco() < 0){
+            produto.setPreco(0.0);
+            return false;
+        }
+        return true;
     }
 }

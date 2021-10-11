@@ -24,6 +24,7 @@ public class Produto {
    @Column(nullable = false, unique = false)
    private String nome;
 
+   @Lob //usado para o banco aceitar valores grandes e tratar com melhor performance
    @Column(nullable = false, unique = false)
    private String descricao;
 
