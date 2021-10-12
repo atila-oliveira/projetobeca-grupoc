@@ -4,6 +4,7 @@
     <title>Locadora</title>
     <!--CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <STYLE>A {text-decoration: none;} </STYLE>
 </head>
 
 <body>
@@ -11,7 +12,7 @@
 <header>
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1" style="font-weight: bold;">Locadora</span>
+            <a href="/"><span class="navbar-brand mb-0 h1" style="font-weight: bold;">Locadora</span></a>
         </div>
     </nav>
 </header>
@@ -20,34 +21,45 @@
     <div class="container" style="width: 60%; padding-bottom: 30px;">
 
         <nav aria-label="breadcrumb">
-            <ol class="breadcrumb" style="background-color: white; padding-left: 0px;">
-                <li class="breadcrumb-item"><a href="/pedidos">Pedidos</a></li>
+            <ol class="breadcrumb" style="font-weight: bold; background-color: white; padding-top: 30px;">
+                <li class="breadcrumb-item"><a href="/pedidos"><span class="texto">Pedidos</span></a></li>
                 <li class="breadcrumb-item active" aria-current="page">Cadastro de Pedidos</li>
             </ol>
         </nav>
 
         <div>
             <form method="post">
+                <style type="text/css">
+	                .texto{
+		            color: black;
+	                }
+	                 .texto2{
+	            	color: grey;
+                	}
+            	    .texto3{
+	        	    color: red;
+	                }
 
+                 </style>
                 <div class="form-group">
-                    Nome do Cliente: <input type="text" class="form-control" name="cliente" placeholder="Digite seu nome">
+                    <span class="texto">Nome do Cliente:</span></span><input type="text" class="form-control" name="cliente" placeholder="Digite seu nome">
                 </div>
 
                 <div class="form-group">
-                    Nome do Produto: <input type="text" class="form-control" name="produto" placeholder="Digite o produto que deseja alugar">
+                    <span class="texto">Nome do Produto:</span> <input type="text" class="form-control" name="produto" placeholder="Digite o produto que deseja alugar">
                 </div>
 
                 <div class="form-group">
-                    Tempo de Locação (em dias): <input type="number" class="form-control" name="tempoDeLocacao" placeholder="Quantos dias deseja ficar com o produto?">
+                    <span class="texto">Tempo de Locação</span> (em dias): <input type="number" class="form-control" name="tempoDeLocacao" placeholder="Quantos dias deseja ficar com o produto?">
                 </div>
 
                 <div>
                     <input value=th:text="${produto.preco}"/>
                 </div>
 
-                 <small class="form-text text-muted">(*) Campos obrigatórios!</small><br>
+                <small class="form-text text-muted"><span class="texto3">(*) Campos obrigatórios!</span></small><br>
                 <button type="submit" class="btn btn-secondary" style="margin-top: 10px;">Fechar Pedido</button>
-                <a href="/produtos" class="btn btn-light" role="button" style="margin-top: 10px;">Cancelar</a>
+                <a href="/produtos" class="btn btn-danger" role="button" style="margin-top: 10px;">Cancelar</a>
 
             </form>
         </div>
