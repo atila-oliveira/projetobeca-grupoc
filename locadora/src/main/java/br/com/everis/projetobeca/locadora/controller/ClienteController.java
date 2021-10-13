@@ -18,7 +18,7 @@ import java.util.List;
 public class ClienteController {
 
     @Autowired
-    ClienteService clienteService;
+    private ClienteService clienteService;
 
     @RequestMapping(value = "/clientes", method = RequestMethod.GET)
     public ModelAndView buscarCliente(){

@@ -51,7 +51,7 @@ public class PedidoServiceImpl implements PedidoService {
     public Pedido adicionarClienteAoPedido(Long idCliente){
         Cliente cliente = clienteService.findById(idCliente);
 
-        this.pedido.getClientes().add( cliente );
+        this.pedido.setCliente( cliente );
 
         return pedido;
     }
