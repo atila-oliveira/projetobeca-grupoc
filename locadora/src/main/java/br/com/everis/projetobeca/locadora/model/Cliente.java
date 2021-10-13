@@ -9,8 +9,6 @@ import javax.validation.constraints.NotBlank;
 @Entity
 @Table(name = "CLIENTES")
 @Data
-@NoArgsConstructor
-//@AllArgsConstructor - Cria construtor com todos os argumentos
 public class Cliente {
 
     @Id
@@ -40,7 +38,6 @@ public class Cliente {
 
     @OneToOne(cascade = CascadeType.ALL) //cria um vinculo na exclusão
     private Pedido pedido;
-
 }
 
 

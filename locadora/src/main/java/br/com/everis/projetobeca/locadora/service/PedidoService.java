@@ -1,12 +1,21 @@
 package br.com.everis.projetobeca.locadora.service;
 
+import br.com.everis.projetobeca.locadora.model.Cliente;
 import br.com.everis.projetobeca.locadora.model.Pedido;
+import br.com.everis.projetobeca.locadora.model.Produto;
 
 import java.util.List;
 
 public interface PedidoService {
 
-    List<Pedido> findAll();
-    Pedido findById(Long id);
-    Pedido save(Pedido pedido);
+    //Ações bd pedido
+    public List<Pedido> findAll();
+    public Pedido findById(Long id);
+    public Pedido save(Pedido pedido);
+
+    //ações pedido
+    public Pedido adicionarClienteAoPedido(Cliente cliente);
+    public Pedido adicionarProdutosAoPedido(Long idProduto);
+    public Pedido criarPedido();
+    public void concluirPedido(Pedido pedido);
 }

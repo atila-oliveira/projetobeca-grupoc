@@ -1,7 +1,5 @@
-package br.com.everis.projetobeca.locadora.service.implem;
+package br.com.everis.projetobeca.locadora.service.impl;
 
-import br.com.everis.projetobeca.locadora.controller.dto.ProdutoDTO;
-import br.com.everis.projetobeca.locadora.model.Cliente;
 import br.com.everis.projetobeca.locadora.model.Produto;
 import br.com.everis.projetobeca.locadora.repository.ProdutoRepository;
 import br.com.everis.projetobeca.locadora.service.ProdutoService;
@@ -11,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ProdutoServiceImplemen implements ProdutoService {
+public class ProdutoServiceImpl implements ProdutoService {
 
     @Autowired
     ProdutoRepository produtoRepository;

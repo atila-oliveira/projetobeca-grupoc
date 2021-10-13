@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -27,7 +28,7 @@ public class Pedido {
 
     @ManyToMany
     @JoinColumn(referencedColumnName = "idProduto", name = "idPedido")
-    private List<Produto> produtos;
+    private List<Produto> produtos = new ArrayList<>();
 
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy")
     private LocalDate data;

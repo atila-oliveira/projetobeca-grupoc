@@ -18,9 +18,6 @@ public class Produto {
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
 
-   @OneToOne
-   private Pedido pedido;
-
    @Column(nullable = false, unique = false)
    private String nome;
 

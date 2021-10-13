@@ -39,15 +39,22 @@
 	          }
              </style>
             <form method="post">
-                <select>
-                    <option th:each="produto : ${produtos}" th:value="${produto.id}" th:text="${produto.nome}"></option>
-                </select>
+                <div class="panel-default well" th:each="produto : ${produtos}">
+                    <div class="panel-heading">
+                        <h1 th:text="${produto.nome}"></h1>
+                    </div>
 
+                    <h3 class="panel-body" th:text="${produto.nome}">Descrição</h3>
 
-                <small class="form-text text-muted"><span class="texto">(*) Campos obrigatórios!</span></small><br>
-                <button type="submit" class="btn btn-secondary" style="margin-top: 10px;">Adicionar</button>
-<!--                <a href="/produtos" class="btn btn-light" role="button" style="margin-top: 10px;">Cancelar</a>-->
+                    <div class="row panel-footer">
+                        <div class="col-md-2" th:inline="text">Preço: [[${produto.preco}]]</div>
+                        <a class="col-md-1" th:href="@{'/pedido/addProduto/{id}' (id=${produto.id})}">
+                            <button type="button" class="btn btn-primary">Adicionar</button>
+                        </a>
+                    </div>
 
+                    <br>
+                </div>
             </form>
         </div>
     </div>

@@ -1,4 +1,4 @@
-package br.com.everis.projetobeca.locadora.service.implem;
+package br.com.everis.projetobeca.locadora.service.impl;
 
 import br.com.everis.projetobeca.locadora.model.Funcionario;
 import br.com.everis.projetobeca.locadora.repository.FuncionarioRepository;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class FuncionarioServiceImplem implements FuncionarioService {
+public class FuncionarioServiceImpl implements FuncionarioService {
 
     @Autowired
     FuncionarioRepository funcionarioRepository;

@@ -40,24 +40,25 @@
 	        	    color: red;
 	                }
 
-                 </style>
-                <div class="form-group">
-                    <span class="texto">Nome do Cliente:</span></span><input type="text" class="form-control" name="cliente" placeholder="Digite seu nome">
-                </div>
+                </style>
 
                 <div class="form-group">
-                    <span class="texto">Nome do Produto:</span> <input type="text" class="form-control" name="produto" placeholder="Digite o produto que deseja alugar">
+                    <select id="nomeCliente" th:field="*{pedido.cliente}">
+                        <option value="">Selecione o cliente</option>
+                        <option th:each="cliente : ${clientes}" th:value="${cliente}" th:text="${cliente.nome}"></option>
+                    </select>
                 </div>
 
-                <div class="form-group">
-                    <span class="texto">Tempo de Locação</span> (em dias): <input type="number" class="form-control" name="tempoDeLocacao" placeholder="Quantos dias deseja ficar com o produto?">
-                </div>
+<!--                <div class="form-group">-->
+<!--                    <span class="texto">Tempo de Locação</span> (em dias): <input type="number" class="form-control" name="tempoDeLocacao" placeholder="Quantos dias deseja ficar com o produto?">-->
+<!--                </div>-->
 
                 <div>
-                    <input value=th:text="${produto.preco}"/>
+                    <span th:text="${pedido.produtos.size()}">Quantidade de produtos</span>
                 </div>
 
                 <small class="form-text text-muted"><span class="texto3">(*) Campos obrigatórios!</span></small><br>
+                <a href="/adicionarproduto" class="btn btn-danger" role="button" style="margin-top: 10px;">Adicionar Produto ao pedido</a>
                 <button type="submit" class="btn btn-secondary" style="margin-top: 10px;">Fechar Pedido</button>
                 <a href="/produtos" class="btn btn-danger" role="button" style="margin-top: 10px;">Cancelar</a>
 

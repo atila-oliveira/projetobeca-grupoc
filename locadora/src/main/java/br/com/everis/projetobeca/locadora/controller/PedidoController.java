@@ -4,11 +4,13 @@ import br.com.everis.projetobeca.locadora.model.Cliente;
 import br.com.everis.projetobeca.locadora.model.Funcionario;
 import br.com.everis.projetobeca.locadora.model.Pedido;
 import br.com.everis.projetobeca.locadora.model.Produto;
+import br.com.everis.projetobeca.locadora.service.ClienteService;
 import br.com.everis.projetobeca.locadora.service.FuncionarioService;
 import br.com.everis.projetobeca.locadora.service.PedidoService;
 import br.com.everis.projetobeca.locadora.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,45 +25,16 @@ import java.util.List;
 public class PedidoController {
 
     @Autowired
-    PedidoService pedidoService;
+    private PedidoService pedidoService;
 
-    @RequestMapping(value = "/pedidos", method = RequestMethod.GET)
-    public ModelAndView buscarPedidos(){
-        ModelAndView mv = new ModelAndView("pedidos");
-        List<Pedido> pedidos = pedidoService.findAll();
-        mv.addObject("pedidos", pedidos);
-        return mv;
-    }
-
-    @RequestMapping(value = "/novopedido", method = RequestMethod.GET)
-    public String getPedidoForm(){
-        return "pedidoForm";
-    }
-
-    @RequestMapping(value = "/novopedido", method = RequestMethod.POST)
-    public String savePedido(@Valid Pedido pedido, BindingResult result, RedirectAttributes attributes){
-        if(result.hasErrors() ) {
-            attributes.addFlashAttribute("messagem", "Verifique de os campos obrigatórios foram preenchidos");
-            return "redirect:/novopedido";
-        }
-
-        pedido.setValorTotal(50.0);
-        pedidoService.save(pedido);
-        return "redirect:/pedidos";
-    }
-
-}
-
-
-/*
     @Autowired
-    private PedidoService  pedidoService;
+    private ClienteService clienteService;
 
     @Autowired
     private ProdutoService produtoService;
 
     @RequestMapping(value = "/pedidos", method = RequestMethod.GET)
-    public ModelAndView buscarPedido(){
+    public ModelAndView buscarPedidos() {
         ModelAndView mv = new ModelAndView("pedidos");
         List<Pedido> pedidos = pedidoService.findAll();
         mv.addObject("pedidos", pedidos);
@@ -69,49 +42,40 @@ public class PedidoController {
     }
 
     @RequestMapping(value = "/novopedido", method = RequestMethod.GET)
-    public String getPedidoForm(){
-        return "pedidoForm";
-    }
+    public ModelAndView getPedidoForm() {
+        Pedido pedido = pedidoService.criarPedido();
 
-    @RequestMapping(value = "/novopedido", method = RequestMethod.POST)
-    public String savePedido(@Valid Pedido pedido, BindingResult result, RedirectAttributes attributes){
-        if(result.hasErrors() ) {
-            attributes.addFlashAttribute("messagem", "Verifique de os campos obrigatórios foram preenchidos");
-            return "redirect:/novopedido";
-        }
+        List<Cliente> listaClientes = clienteService.findAll();
 
-        pedidoService.save(pedido);
-
-        return "redirect:/{" + pedido.getId() + "}/novoproduto";
-    }
-*/
-/*
-
-    @RequestMapping(value = "/{idPedido}/novoproduto", method = RequestMethod.GET)
-    public ModelAndView adicionarProdutoAoPedido(@PathVariable("idPedido") Long idPedido){
-        ModelAndView mv = new ModelAndView("adicionarProdutoAoPedido");
-
-        List<Produto> listaProdutos = produtoService.findAll();
-        Pedido pedido = pedidoService.findById(idPedido);
-
-        mv.addObject("produtos", listaProdutos);
+        ModelAndView mv = new ModelAndView("pedidoForm");
         mv.addObject("pedido", pedido);
+        mv.addObject("clientes", listaClientes);
 
         return mv;
     }
-*//*
 
+    @RequestMapping(value = "/adicionarproduto", method = RequestMethod.GET)
+    public ModelAndView adicionarProdutoAoPedido(){
+        ModelAndView mv = new ModelAndView("adicionarProdutoAoPedido");
 
-*/
-/*    @RequestMapping(value = "/pedido/novoproduto", method = RequestMethod.PATCH)
-    public void adicionarProdutoPedido(Pedido pedido, Produto produto, BindingResult result){
-        pedido.getProdutos().add(produto);
+        List<Produto> listaProdutos = produtoService.findAll();
 
-        pedidoService.save(pedido);
+        mv.addObject("produtos", listaProdutos);
 
-        return "redirect:/{" + pedido.getId() + "}/novoproduto";
-    }*//*
+        return mv;
+    }
 
+    @RequestMapping(value = "/pedido/addProduto/{produtoId}", method = RequestMethod.GET)
+    public String addProdutoNoCarrinho(@PathVariable("produtoId") Long produtoId){
+        pedidoService.adicionarProdutosAoPedido(produtoId);
 
+        return "redirect:/novopedido";
+    }
+
+    @RequestMapping(value = "/novopedido", method = RequestMethod.POST)
+    public String concluirPedido(Pedido pedido) {
+        pedidoService.concluirPedido(pedido);
+
+        return "redirect:/pedidos";
+    }
 }
-*/
