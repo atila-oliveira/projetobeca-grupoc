@@ -20,8 +20,9 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
-    private Cliente cliente;
+    @ManyToMany
+    @JoinColumn(referencedColumnName = "idCliente", name = "idCliente")
+    private List<Cliente> clientes = new ArrayList<>();
 
     @Column(nullable = false, unique = false)
     private StatusPedido status = StatusPedido.ABERTO;

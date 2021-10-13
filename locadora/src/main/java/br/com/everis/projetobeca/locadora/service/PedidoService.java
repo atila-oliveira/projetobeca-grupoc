@@ -14,7 +14,7 @@ public interface PedidoService {
     public Pedido save(Pedido pedido);
 
     //ações pedido
-    public Pedido adicionarClienteAoPedido(Cliente cliente);
+    public Pedido adicionarClienteAoPedido(Long idClientes);
     public Pedido adicionarProdutosAoPedido(Long idProduto);
     public Pedido criarPedido();
     public void concluirPedido(Pedido pedido);

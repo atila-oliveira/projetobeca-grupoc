@@ -45,11 +45,11 @@ public class PedidoController {
     public ModelAndView getPedidoForm() {
         Pedido pedido = pedidoService.criarPedido();
 
-        List<Cliente> listaClientes = clienteService.findAll();
+//        List<Cliente> listaClientes = clienteService.findAll();
 
         ModelAndView mv = new ModelAndView("pedidoForm");
         mv.addObject("pedido", pedido);
-        mv.addObject("clientes", listaClientes);
+        //      mv.addObject("clientes", listaClientes);
 
         return mv;
     }
@@ -71,6 +71,30 @@ public class PedidoController {
 
         return "redirect:/novopedido";
     }
+
+// --------------------------------------------------------------------------------------------
+
+    @RequestMapping(value = "/adicionarcliente", method = RequestMethod.GET)
+    public ModelAndView adicionarClienteAoPedido(){
+        ModelAndView mv = new ModelAndView("adicionarClienteAoPedido");
+
+        List<Cliente> listaClientes = clienteService.findAll();
+
+        mv.addObject("clientes", listaClientes);
+
+        return mv;
+    }
+
+
+    @RequestMapping(value = "/pedido/addCliente/{clienteId}", method = RequestMethod.GET)
+    public String addClienteNoCarrinho(@PathVariable("clienteId") Long clienteId){
+        pedidoService.adicionarClienteAoPedido(clienteId);
+
+        return "redirect:/novopedido";
+    }
+
+
+
 
     @RequestMapping(value = "/novopedido", method = RequestMethod.POST)
     public String concluirPedido(Pedido pedido) {

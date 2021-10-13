@@ -4,6 +4,7 @@ import br.com.everis.projetobeca.locadora.model.Cliente;
 import br.com.everis.projetobeca.locadora.model.Pedido;
 import br.com.everis.projetobeca.locadora.model.Produto;
 import br.com.everis.projetobeca.locadora.repository.PedidoRepository;
+import br.com.everis.projetobeca.locadora.service.ClienteService;
 import br.com.everis.projetobeca.locadora.service.PedidoService;
 import br.com.everis.projetobeca.locadora.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.WebApplicationContext;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
@@ -26,6 +28,10 @@ public class PedidoServiceImpl implements PedidoService {
 
     @Autowired
     private ProdutoService produtoService;
+
+    @Autowired
+    private ClienteService clienteService;
+
 
     @Override
     public List<Pedido> findAll() {
@@ -42,8 +48,10 @@ public class PedidoServiceImpl implements PedidoService {
         return pedidoRepository.save(pedido);
     }
 
-    public Pedido adicionarClienteAoPedido(Cliente cliente){
-        this.pedido.setCliente(cliente);
+    public Pedido adicionarClienteAoPedido(Long idCliente){
+        Cliente cliente = clienteService.findById(idCliente);
+
+        this.pedido.getClientes().add( cliente );
 
         return pedido;
     }
@@ -66,7 +74,7 @@ public class PedidoServiceImpl implements PedidoService {
 
     public void concluirPedido(Pedido pedido){
         pedido.setProdutos(this.criarPedido().getProdutos());
-
+        pedido.setData(LocalDate.now());
         this.save(pedido);
 
         this.pedido = null;
